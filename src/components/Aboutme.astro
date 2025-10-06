@@ -1,0 +1,30 @@
+---
+const personalImageAlt = "Joseline Franco"
+---
+
+<article class="flex flex-col items-center justify-center gap-8 text-gray-700 dark:text-gray-300 md:flex-row">
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+      Soy <strong>Joseline Franco</strong>, Desarrolladora Frontend con experiencia en el sector financiero, especializada en <strong>Angular y React</strong>. Me apasiona construir interfaces escalables, accesibles y de alto rendimiento que aporten valor real al usuario.
+    </p>
+
+    <p>
+      He trabajado en proyectos como la <strong>banca móvil y banca web del Banco Pichincha</strong>, desarrollando micro frontends, integrando APIs REST, y aplicando buenas prácticas de arquitectura (SOLID, Clean Code) en entornos ágiles.
+    </p>
+
+    <p>
+      También he contribuido en iniciativas de <strong>innovación digital</strong>, proponiendo y creando soluciones con Angular, React, AWS, Azure y Spring Boot. Mi enfoque está en combinar tecnología y diseño para mejorar la experiencia del cliente.
+    </p>
+  </div>
+
+  <img
+    width="200"
+    height="200"
+    src="/me.png"
+    alt={personalImageAlt}
+    class="order-1 object-cover w-64 h-full p-1 md:order-2 rotate-3 lg:p-2 lg:w-64 aspect-square rounded-2xl bg-black/20 dark:bg-yellow-500/5 ring-1 ring-black/70 dark:ring-white/20 "
+    style="object-position: 50% 50%"
+  >
+</article>

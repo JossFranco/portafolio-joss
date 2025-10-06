@@ -1,11 +1,54 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Badge from "@/components/Badge.astro";
+import Welcome from "../components/Welcome.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Portafolio de Joseline Franco - Desarrolladora Frontend con experiencia en Angular y React"
+  description="Contrata a Joseline Franco para crear tu aplicación web o móvil. Desarrolladora Web especializada en Angular, React y micro frontends. Experiencia en sector financiero y proyectos de innovación digital."
+>
+  <main>
+    <section class="w-fullmx-auto lg:w-[740px] py-44">
+      <h1 class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10">
+        Hey, soy Joseline
+        <a
+          href="https://www.linkedin.com/in/joseline-franco-259052239/"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+      <h2></h2>
+      <p
+        class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+      >
+        Desarrolladora Frontend con <strong
+          >experiencia en Angular, React y micro frontends</strong
+        >. He trabajado en el sector financiero y en proyectos de innovación
+        digital, construyendo interfaces escalables, integrando APIs REST y
+        aplicando principios de <strong>Clean Code y SOLID</strong>. Basada en
+        Quito 🇪🇨, disponible para proyectos remotos o híbridos.
+      </p>
+<section class="rounded-full border border-white/10 flex justify-center items-centergap-x2 px-1 space-x-6"> 
+  <a href="https://github.com/JossFranco">
+        <img
+          src="src/assets/github_dark.svg"
+          alt="Ilustración de una desarrolladora web trabajando en su computadora portátil"
+          class="mt-4 w-12 h-auto relative inline-flex overflow-hidden rounded-full p-[1px]"
+        />
+      </a>
+      <a href="https://www.linkedin.com/in/joseline-franco-259052239/">
+        <img src="src/assets/linkedin.svg" alt="" class="mt-4 w-12 h-auto"/>
+      </a>
+      <a href="">
+        <img src="src/assets/gmail.svg" alt=""class="mt-4 w-12 h-auto" />
+      </a>
+</section>
+  
+    </section>
+  </main>
+  <Welcome />
 </Layout>
