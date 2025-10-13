@@ -1,0 +1,45 @@
+---
+import TitleSection from "./TitleSection.astro";
+import ItemExperience from "./ItemExperience.astro";
+
+const workExperiences = [
+  {
+    company: "Banco Pichincha",
+    companyLogo: "src/icons/bp.png",
+    positionInTheCompany: "Frontend Developer",
+    startDate: new Date(2022, 6, 1),
+    endDate: new Date(2025, 3, 4),
+    isCurrentCompany: true,
+    description:
+      "Development of scalable and modular web applications using Angular and TypeScript. Integration of RESTful APIs and data visualization modules connected to SQL Server and Firebase. Collaboration with .NET backend teams in complex integration projects, ensuring performance and security across banking platforms. Implementation of CI/CD pipelines and Agile (Scrum) practices to enhance code quality and delivery speed.",
+    redirectLink: "https://www.bancopichincha.com",
+  },
+  {
+    company: "Freelance Projects",
+    companyLogo: "/pictures/freelance.png",
+    positionInTheCompany: "Full Stack Developer",
+    startDate: new Date(2021, 1, 1),
+    endDate: new Date(2022, 6, 1),
+    description:
+      "Design and implementation of responsive web applications using Angular, Node.js, and Firebase. Created authentication systems, dashboards, and API integrations. Managed relational and non-relational databases (MySQL, MongoDB). Focused on scalable architecture, reusability, and front-end performance optimization.",
+  },
+  {
+    company: "Banco Pichincha",
+    companyLogo: "src/icons/bp.png",
+    positionInTheCompany: "Transactional Services Executive",
+    startDate: new Date(2018, 3, 1),
+    endDate: new Date(2022, 1, 1),
+    description:
+      "Supported the digital transformation of transactional banking services. Improved processes and customer experience in online and mobile channels. Collaborated with internal development teams to identify automation opportunities and enhance operational efficiency.",
+  },
+];
+
+---
+
+<section id="experience" class="flex flex-col justify-center md:max-w-4xl lg:max-w-5xl gap-8 m-auto mt-12 px-2 lg:px-0 scroll-mt-20 md:scroll-mt-24 lg:scroll-mt-32">
+  <TitleSection title="Experiencia Laboral" icon="briefcase" />
+  <div class="flex flex-col gap-6">
+    {workExperiences.map((experience) => (
+      <ItemExperience {...experience} />
+    ))}
+  </div>
