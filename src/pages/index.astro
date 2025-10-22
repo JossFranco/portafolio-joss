@@ -3,19 +3,17 @@ import Badge from "@/components/Badge.astro";
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import SocialPill from "@/components/SocialPill.astro";
-import ItemExperience from "@/components/ItemExperience.astro";
 import type { Props } from "astro";
 import WorkExperiences from "@/components/workExperiences.astro";
+import SectionContainer from "@/SectionContainer.astro";
 ---
 
 <Layout
   title="Portafolio de Joseline Franco - Desarrolladora Frontend con experiencia en Angular y React"
   description="Contrata a Joseline Franco para crear tu aplicación web o móvil. Desarrolladora Web especializada en Angular, React y micro frontends.  Experiencia en sector financiero y proyectos de innovación digital."
 >
-  <main>
-    <section
-      class="flex flex-col justify-center items-center text-center min-h-screen px-6"
-    >
+  <main class="px-4">
+    <SectionContainer class="py-16 md:py-36">
       <h1
         class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10 flex-wrap justify-center"
       >
@@ -67,9 +65,10 @@ import WorkExperiences from "@/components/workExperiences.astro";
           />
         </SocialPill>
       </div>
- 
-    </section>
-<WorkExperiences />
+    </SectionContainer>
+        <SectionContainer id="work-experience" class="mt-20">
+         <WorkExperiences />
+      </SectionContainer>
   </main>
   <Welcome />
 </Layout>
