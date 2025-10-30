@@ -1,0 +1,53 @@
+---
+import ItemExperience from "./ItemExperience.astro"
+
+type ItemProps = {
+  date: string
+  title: string
+  company: string
+  description: string
+  link?: string
+  companyLogo?: string
+  positionInTheCompany?: string
+}
+
+const EXPERIENCE: ItemProps[] = [
+  {
+    date: "Julio 2022 – Abril 2025",
+    title: "Front-End Developer",
+    company: "Banco Pichincha",
+    description:
+      "Desarrollo de micro frontends con Angular y TypeScript para aplicaciones bancarias internas. Creación de componentes modulares y reutilizables, integración de APIs RESTful y aplicación de buenas prácticas de desarrollo (SOLID, Clean Code). Participación activa en equipos ágiles bajo metodología Scrum, colaborando con backend y QA para optimizar rendimiento y experiencia de usuario.",
+    link: "https://www.pichincha.com",
+    companyLogo: "/assets/logos/pichincha.png",
+    positionInTheCompany: "Front-End Developer",
+  },
+  {
+    date: "Marzo 2018 – Enero 2022",
+    title: "Ejecutiva de Servicios Transaccionales",
+    company: "Banco Pichincha",
+    description:
+      "Gestión de transacciones financieras, soporte digital y mejora continua de procesos operativos. Contribuí al fortalecimiento de la atención al cliente y adopción de canales digitales, además de participar en iniciativas internas para optimizar flujos y reportes automatizados.",
+    companyLogo: "/assets/logos/pichincha.png",
+    positionInTheCompany: "Ejecutiva de Servicios Transaccionales",
+  },
+  {
+    date: "Enero 2022 – Junio 2022",
+    title: "Frontend Developer Trainee",
+    company: "Laboratoria",
+    description:
+      "Formación intensiva en desarrollo web con HTML, CSS, JavaScript y frameworks modernos. Creación de proyectos web aplicando principios de UX/UI, control de versiones con GitHub y despliegue en entornos de prueba. Enfocada en el aprendizaje de Angular y buenas prácticas de desarrollo colaborativo.",
+    link: "https://www.laboratoria.la/",
+    companyLogo: "/assets/logos/laboratoria.png",
+    positionInTheCompany: "Frontend Developer Trainee",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {EXPERIENCE.map((experience) => (
+    <li>
+      <ItemExperience {...experience} />
+    </li>
+  ))}
+</ol>

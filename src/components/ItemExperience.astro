@@ -1,16 +1,17 @@
 ---
-import workExperiences from './workExperiences';
+import LinkInline from "./LinkInline.astro";
 
 interface Props {
   company: string;
   companyLogo: string;
   positionInTheCompany: string;
-  startDate?: Date;
-  endDate?: Date;
+  startDate?: string;
+  endDate?: string;
   isCurrentCompany?: boolean;
   description: string;
-
+  link?: string;
 }
+
 const {
   company,
   companyLogo,
@@ -19,20 +20,53 @@ const {
   endDate,
   isCurrentCompany = false,
   description,
-
+  link,
 } = Astro.props;
 ---
 
-<div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 p-4 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-  <img src={companyLogo} alt={`${company} logo`} class="w-16 h-16 object-contain" />
-  <div class="flex flex-col">
-    <h3 class="text-xl font-semibold text-gray-800 dark:text-white">{positionInTheCompany}</h3>
-    <p class="text-gray-600 dark:text-gray-300">{company}</p>
-    <p class="text-gray-500 dark:text-gray-400 text-sm">
-      {startDate ? startDate : ''} - {isCurrentCompany ? 'Present' : endDate ? endDate : ''}
-    </p>
-    <p class="mt-2 text-gray-700 dark:text-gray-300">{description}</p>
+<div
+  class="relative mx-12 pb-12 grid before:absolute before:left-[-35px] before:block before:h-full before:border-l-2 before:border-black/20 dark:before:border-white/15 before:content-[''] md:grid-cols-5 md:gap-10 md:space-x-4"
+>
+  <div class="relative pb-12 md:col-span-2">
+    <div class="sticky top-0">
+      <span class="text-yellow-400 -left-[42px] absolute rounded-full text-5xl">&bull;</span>
+
+      <div class="flex items-center gap-3">
+        <img
+          src={companyLogo}
+          alt={`${company} logo`}
+          class="w-10 h-10 object-contain rounded-md border border-gray-300 dark:border-gray-600"
+        />
+        <div>
+          <h3 class="text-xl font-bold text-yellow-400">{positionInTheCompany}</h3>
+          <h4 class="font-semibold text-lg text-gray-600 dark:text-white">{company}</h4>
+          <time class="text-sm text-gray-600/80 dark:text-white/80">
+            {startDate} – {isCurrentCompany ? "Presente" : endDate}
+          </time>
+        </div>
+      </div>
+    </div>
   </div>
 
-
-
+  <div class="relative flex flex-col gap-2 pb-4 text-gray-600 dark:text-gray-300 md:col-span-3">
+    <p>{description}</p>
+    {link && (
+      <LinkInline href={link}>
+        Saber más{" "}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 icon icon-tabler icon-tabler-chevron-right"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M9 6l6 6l-6 6" />
+        </svg>
+      </LinkInline>
+    )}
+  </div>
+</div>

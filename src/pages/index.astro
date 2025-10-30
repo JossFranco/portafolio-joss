@@ -6,6 +6,7 @@ import SocialPill from "@/components/SocialPill.astro";
 import type { Props } from "astro";
 import WorkExperiences from "@/components/workExperiences.astro";
 import SectionContainer from "@/SectionContainer.astro";
+import Aboutme from "@/components/Aboutme.astro";
 ---
 
 <Layout
@@ -47,7 +48,6 @@ import SectionContainer from "@/SectionContainer.astro";
             class="size-8 transition-transform duration-200 group-hover:scale-110"
           />
         </SocialPill>
-
         <SocialPill
           href="https://www.linkedin.com/in/joseline-franco-259052239/"
         >
@@ -66,9 +66,12 @@ import SectionContainer from "@/SectionContainer.astro";
         </SocialPill>
       </div>
     </SectionContainer>
-        <SectionContainer id="work-experience" class="mt-20">
+        <SectionContainer>
          <WorkExperiences />
       </SectionContainer>
+<SectionContainer>
+  <Aboutme />
+</SectionContainer>
+
   </main>
-  <Welcome />
 </Layout>
