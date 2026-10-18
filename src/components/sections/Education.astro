@@ -1,0 +1,19 @@
+---
+import TitleSection from "@/components/ui/TitleSection.astro"
+import { EDUCATION } from "@/data/education"
+import { formatMonthYear } from "@/utils/date"
+---
+
+<TitleSection title="Educación" icon="school" />
+
+<ul class="grid gap-6 sm:grid-cols-2">
+  {EDUCATION.map(({ title, institution, startDate, endDate }) => (
+    <li class="p-6 rounded-xl border border-white/10 bg-white/5">
+      <h3 class="font-semibold text-white">{title}</h3>
+      <p class="text-yellow-400">{institution}</p>
+      <time datetime={startDate.toISOString()} class="block mt-1 text-sm first-letter:uppercase text-white/70">
+        {formatMonthYear(startDate)} – {formatMonthYear(endDate)}
+      </time>
+    </li>
+  ))}
+</ul>

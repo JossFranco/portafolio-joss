@@ -1,0 +1,29 @@
+---
+interface Props {
+  href: string
+  label: string
+  variant: "github" | "linkedin" | "mail"
+}
+
+const { href, label, variant } = Astro.props
+const isExternal = href.startsWith("http")
+
+const HOVER = {
+  github: "hover:bg-[#171515] hover:border-[#171515]",
+  linkedin: "hover:bg-[#0a66c2] hover:border-[#0a66c2]",
+  mail: "hover:bg-[#d14836] hover:border-[#d14836]",
+}
+---
+
+<a
+  href={href}
+  aria-label={label}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+  class:list={[
+    "group flex items-center justify-center w-16 h-16 rounded-full border border-gray-600 bg-gray-800 text-white transition-all duration-200 hover:scale-110 hover:shadow-lg focus:outline-none focus-visible:ring focus-visible:ring-yellow-500/80 focus-visible:ring-offset-2 active:scale-95",
+    HOVER[variant],
+  ]}
+>
+  <slot />
+</a>

@@ -1,49 +1,52 @@
 ---
-
-const navItems = [
- {
-    title: "Experiencia",
-    label: "experiencia",
-    url: "/#experiencia",
-  },
-  {
-    title: "Proyectos",
-    label: "proyectos",
-    url: "/#proyectos",
-  },
-  {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    url: "/#sobre-mi",
-  },
-  {
-    title: "Contacto",
-    label: "contacto",
-    url: "jossfranco70@gmail.com",
-  },
-]
-
+import { Image } from "astro:assets"
+import { NAV_ITEMS, SITE } from "@/data/site"
+import avatar from "@/assets/avatar.png"
 ---
 
+<header class="fixed top-0 z-20 w-full border-b border-white/10 bg-black/70 backdrop-blur-md">
+  <div class="flex items-center justify-between px-6 py-2 mx-auto lg:max-w-5xl">
+    <a href="/" aria-label="Ir al inicio">
+      <Image src={avatar} alt={SITE.name} width={48} height={48} class="w-12 h-12 rounded-full" />
+    </a>
 
-<header
-  class="fixed top-0 z-10 flex items-center justify-between w-full px-6 py-2"
->
+    <button
+      id="menu-toggle"
+      type="button"
+      class="p-2 text-gray-200 md:hidden"
+      aria-label="Abrir menú"
+      aria-controls="main-nav"
+      aria-expanded="false"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
 
-  <img
-    src="src/icons/avatar.png"
-    alt="img"
-    class="rounded-full w-12 h-12"
-  />
-
-
-  <nav
-    class="flex space-x-6 text-sm font-medium text-gray-600 dark:text-gray-200"
-  >
-    
-    <a href="/about">About me</a>
-    <a href="/projects">Projects</a>
-    <a href="/skills">Skills</a>
-    <a href="/contact">Contact</a>
-  </nav>
+    <nav
+      id="main-nav"
+      class="absolute left-0 hidden w-full px-6 pb-4 top-full bg-black/90 md:static md:block md:w-auto md:p-0 md:bg-transparent"
+    >
+      <ul class="flex flex-col gap-4 text-sm font-medium text-gray-200 md:flex-row md:gap-6">
+        {NAV_ITEMS.map(({ title, href }) => (
+          <li>
+            <a href={href} class="transition hover:text-yellow-300">{title}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle")
+  const nav = document.getElementById("main-nav")
+
+  const setOpen = (open: boolean) => {
+    nav?.classList.toggle("hidden", !open)
+    toggle?.setAttribute("aria-expanded", String(open))
+  }
+
+  toggle?.addEventListener("click", () => setOpen(nav?.classList.contains("hidden") ?? false))
+  nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => setOpen(false)))
+</script>

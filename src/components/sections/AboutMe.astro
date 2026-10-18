@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets"
+import TitleSection from "@/components/ui/TitleSection.astro"
+import me from "@/assets/me.jpg"
+---
+
+<TitleSection title="Sobre mí" icon="user" />
+
+<article class="flex flex-col items-center justify-center gap-8 text-gray-300 md:flex-row">
+  <div
+    class="[&>p]:mb-4 [&>p>strong]:text-yellow-100 [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty order-2 md:order-1"
+  >
+    <p>
+      Soy <strong>Joseline Franco</strong>, Front-End Developer con más de 3 años de experiencia en <strong>Angular y TypeScript</strong>. Me especializo en modernizar aplicaciones legacy, llevándolas de AngularJS a Angular moderno con componentes standalone, lazy loading y una arquitectura escalable.
+    </p>
+
+    <p>
+      Actualmente en <strong>EasySoft</strong> lidero la migración del módulo de Cash Management a Angular 18, apoyándome en herramientas de desarrollo asistido por IA. Antes, en <strong>Banco Pichincha</strong>, desarrollé micro frontends, interfaces responsivas y pruebas unitarias, y validé APIs REST en equipos Scrum.
+    </p>
+
+    <p>
+      Mi camino hacia el desarrollo no fue el tradicional: soy <strong>Ingeniera en Administración de Empresas</strong> y trabajé casi cuatro años en servicios transaccionales en Banco Pichincha, atendiendo a clientes y acompañándolos en la adopción de la banca digital. Esa experiencia me enseñó a entender qué necesita el negocio y qué frustra al usuario, y hoy la aplico en cada interfaz que construyo. En 2022 di el salto a la tecnología con el bootcamp de <strong>Laboratoria</strong> y desde entonces no he dejado de aprender: cada proyecto es una oportunidad para escribir código más limpio y crear mejores experiencias.
+    </p>
+  </div>
+
+  <Image
+    src={me}
+    alt="Fotografía de Joseline Franco"
+    width={256}
+    height={256}
+    class="order-1 object-cover w-64 p-1 md:order-2 rotate-3 lg:p-2 aspect-square rounded-2xl bg-yellow-500/5 ring-1 ring-white/20"
+  />
+</article>

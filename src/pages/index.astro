@@ -1,77 +1,37 @@
 ---
-import Badge from "@/components/Badge.astro";
-import Welcome from "../components/Welcome.astro";
-import Layout from "../layouts/Layout.astro";
-import SocialPill from "@/components/SocialPill.astro";
-import type { Props } from "astro";
-import WorkExperiences from "@/components/workExperiences.astro";
-import SectionContainer from "@/SectionContainer.astro";
-import Aboutme from "@/components/Aboutme.astro";
+import Layout from "@/layouts/Layout.astro"
+import SectionContainer from "@/components/ui/SectionContainer.astro"
+import Hero from "@/components/sections/Hero.astro"
+import Experience from "@/components/sections/Experience.astro"
+import Projects from "@/components/sections/Projects.astro"
+import Skills from "@/components/sections/Skills.astro"
+import Education from "@/components/sections/Education.astro"
+import AboutMe from "@/components/sections/AboutMe.astro"
+import Contact from "@/components/sections/Contact.astro"
 ---
 
-<Layout
-  title="Portafolio de Joseline Franco - Desarrolladora Frontend con experiencia en Angular y React"
-  description="Contrata a Joseline Franco para crear tu aplicación web o móvil. Desarrolladora Web especializada en Angular, React y micro frontends.  Experiencia en sector financiero y proyectos de innovación digital."
->
-  <main class="px-4">
-    <SectionContainer class="py-16 md:py-36">
-      <h1
-        class="text-white text-5xl font-bold flex flex-row gap-x-4 pb-10 flex-wrap justify-center"
-      >
-        Hey, soy Joseline
-        <a
-          href="https://www.linkedin.com/in/joseline-franco-259052239/"
-          target="_blank"
-          rel="noopener"
-          class="flex justify-center items-center"
-        >
-          <Badge>Disponible para trabajar</Badge>
-        </a>
-      </h1>
-<p
-  class="max-w-3xl mx-auto mt-6 text-center text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
->
-  Desarrolladora <strong>Frontend</strong> especializada en <strong>Angular</strong> y
-  <strong>micro frontends</strong>, con experiencia en el sector financiero y en
-  proyectos de transformación digital. Enfocada en la creación de interfaces
-  escalables, integración de <strong>APIs REST</strong> y desarrollo bajo
-  principios de <strong>Clean Code</strong>, <strong>SOLID</strong> y metodologías
-  <strong>ágiles</strong>. Recidente en Quito 🇪🇨, disponible para proyectos
-  <strong>remotos o híbridos</strong>.
-</p>
-
-      <div class="flex justify-center items-center gap-6 mt-8">
-        <SocialPill href="https://github.com/JossFranco">
-          <img
-            src="src/icons/github_dark.svg"
-            alt="GitHub"
-            class="size-8 transition-transform duration-200 group-hover:scale-110"
-          />
-        </SocialPill>
-        <SocialPill
-          href="https://www.linkedin.com/in/joseline-franco-259052239/"
-        >
-          <img
-            src="src/icons/linkedin.svg"
-            alt="LinkedIn"
-            class="size-8 transition-transform duration-200 group-hover:scale-110"
-          />
-        </SocialPill>
-        <SocialPill href="mailto:jossfranco70@gmail.com" >
-          <img
-            src="src/icons/gmail.svg"
-            alt="Correo electrónico"
-            class="size-8 transition-transform duration-200 group-hover:scale-110"
-          />
-        </SocialPill>
-      </div>
+<Layout>
+  <main class="px-4 [&>section+section]:mt-24">
+    <SectionContainer class="pt-32 pb-8 md:pt-44">
+      <Hero />
     </SectionContainer>
-        <SectionContainer>
-         <WorkExperiences />
-      </SectionContainer>
-<SectionContainer>
-  <Aboutme />
-</SectionContainer>
-
+    <SectionContainer id="experiencia">
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="proyectos">
+      <Projects />
+    </SectionContainer>
+    <SectionContainer id="habilidades">
+      <Skills />
+    </SectionContainer>
+    <SectionContainer id="educacion">
+      <Education />
+    </SectionContainer>
+    <SectionContainer id="sobre-mi">
+      <AboutMe />
+    </SectionContainer>
+    <SectionContainer id="contacto">
+      <Contact />
+    </SectionContainer>
   </main>
 </Layout>

@@ -1,0 +1,15 @@
+---
+import TitleSection from "@/components/ui/TitleSection.astro"
+import ExperienceItem from "@/components/ExperienceItem.astro"
+import { EXPERIENCE } from "@/data/experience"
+---
+
+<TitleSection title="Experiencia laboral" icon="briefcase" />
+
+<ol class="relative mt-12">
+  {EXPERIENCE.map((item) => (
+    <li>
+      <ExperienceItem {...item} />
+    </li>
+  ))}
+</ol>
